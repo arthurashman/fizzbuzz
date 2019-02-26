@@ -1,29 +1,26 @@
 require 'fizzbuzz'
 
-describe 'fizzbuzz' do
-  it 'returns "fizz" when passed a multiple of 3' do
-  expect(fizzbuzz(3)).to eq "fizz"
-  expect(fizzbuzz(6)).to eq "fizz"
+class Integer
+  def fizzbuzz
+    if self == 0
+      0
+    elsif self%15 == 0
+      "fizzbuzz"
+    elsif self%3 == 0
+      "fizz"
+    elsif self%5 == 0
+      "buzz"
+    else
+      self
+    end
   end
 end
 
-describe 'fizzbuzz' do
-  it 'returns "buzz" when passed a multiple of 5' do
-  expect(fizzbuzz(5)).to eq "buzz"
-  expect(fizzbuzz(10)).to eq "buzz"
-end
-end
+
+
 
 describe 'fizzbuzz' do
-  it 'returns "fizzbuzz" when passed a multiple of 15' do
-    expect(fizzbuzz(15)).to eq "fizzbuzz"
-    expect(fizzbuzz(30)).to eq "fizzbuzz"
+  it 'returns "fizz" for the number 3' do
+  expect(3.fizzbuzz).to eq 'fizz'
   end
-end
-
-describe 'fizzbuzz' do
-  it 'returns number when passed any non-fizzbuzz number' do
-  expect(fizzbuzz(4)).to eq 4
-  expect(fizzbuzz(7)).to eq 7
-end
 end
